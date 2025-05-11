@@ -1,0 +1,15 @@
+<!-- templates/notesapp/list.html -->
+<h1>All Notes</h1>
+<a href="{% url 'note_create' %}">Create New Note</a>
+<ul>
+  {% for note in notes %}
+    <li>
+      <strong>{{ note.title }}</strong><br>
+      {{ note.content }}<br>
+      <a href="{% url 'note_update' note.id %}">Edit</a> |
+      <a href="{% url 'note_delete' note.id %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No notes found.</li>
+  {% endfor %}
+</ul>
